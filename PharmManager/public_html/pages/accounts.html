@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Accounts</title>
+    <meta charset="utf-8">
+    <script src="/scripts/accounts.js"></script>
+    <link rel="icon" type="image/x-icon" href="../styles/favicon.png">
+    <link rel="stylesheet"
+          type="text/css"
+          href="/styles/accounts.css">
+</head>
+<body>
+    <script id="replace_with_navbar" src="/nav.js"></script>
+
+    <div id="accountsMain">
+        <!-- Locked Accounts Popup -->
+        <div class="form-popup locked-popup" id="lockedForm">
+            <div class="widget">
+                <h2>Locked Accounts</h2>
+                <div id="lockedAccountList"></div>
+                <button type="button" class="btn cancel" onclick="closeLockedAccounts()">Close</button>
+            </div>
+        </div>
+
+        <div class="widget">
+            <h2>Active Accounts</h2>
+            <div id="form-buttons">
+                <!-- Buttons for Opening Forms -->
+                <button class="open-button" onclick="openForm(null, 1)">Create Staff Member Account</button>
+                <button class="open-button" onclick="openLockedAccounts()">Recover Locked Accounts</button>
+                <button class="open-button" onclick="openUpdateInfo()">Update Pharmacy Information</button>
+            </div>
+            <div id="accountList"></div>  
+        </div>
+    </div>
+
+
+    <!-- Staff Member Account Form -->
+    <div class="form-popup" id="accountForm">
+        <div class="form-container">
+            <form>
+                <h2>Staff Account Information</h2>
+
+                <table>
+                    <tr>
+                        <td><label for="staffName"><b>Staff Name</b></label></td>
+                        <td><input type="text" placeholder="Jane Doe" id="staffName" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="staffType"><b>Type of Staff Member</b></label></td>
+                        <td>
+                            <select id="staffType" name="staffType" required>
+                                <option value="" disabled selected>Select Type</option>
+                                <option value="pharmacyManager">Pharmacy Manager</option>
+                                <option value="pharmacist">Pharmacist</option>
+                                <option value="pharmacyTechnician">Pharmacy Technician</option>
+                                <option value="cashier">Cashier</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="username"><b>Username</b></label></td>
+                        <td><input type="text" placeholder="username" id="username" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="password"><b>Password</b></label></td>
+                        <td><input type="text" placeholder="password" id="password"></td>
+                    </tr>
+                </table>
+
+                <button type="button" class="btn" id="submit-btn" onclick="openForm(1)">Add Account</button>
+                <button type="button" class="btn cancel" onclick="closeCreateAccountForm()">Close</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Update Info Form -->
+    <div class="form-popup" id="infoFormPopup">
+        <div class="form-container">
+            <form id="infoForm"></form>
+            <button type="button" class="btn" onclick="updateInfo()">Update</button>
+            <button type="button" class="btn cancel" onclick="closeUpdateInfo()">Close</button>
+        </div>
+    </div>
+
+</body>
+</html>

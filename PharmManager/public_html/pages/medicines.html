@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Medicines</title>
+    <meta charset="utf-8">
+    <script src="/scripts/medicines.js"></script>
+    <link rel="icon" type="image/x-icon" href="../styles/favicon.png">
+    <link rel="stylesheet"
+          type="text/css"
+          href="/styles/medicines.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+        // Needed to check which medicines are expired/expiring
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get today's date in the format 'YYYY-MM-DD'
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById("expirationDate").setAttribute("min", today);
+
+            //Clear inputs on reload
+            document.getElementById("name").value = "";
+            document.getElementById("quantity").value = "";
+            document.getElementById("expirationDate").value = "";
+            document.getElementById("searchField").value = "";
+            });
+    </script>
+</head>
+<body>
+    <div>
+        <script id="replace_with_navbar" src="/nav.js"></script>
+    </div>
+    <div id="medicineMain">
+        <!-- search field -->
+        <div class="widget" id="middle">
+            <div id="searchBar">
+                <h3>Search:</h3>
+                <span>
+                    <input type="text" id="searchField" oninput= debouncedSearchMeds()>
+                </span> 
+            </div>
+            <button class="open-button" onclick="openForm()">Add Medicine</button>
+        </div>
+        <!-- medicines table -->
+        <div class="widget" id="bottom">
+            <!-- tabs -->
+            <div id="headers">
+                <div id="headers-inner">
+                    <button class="tab-header active" id="main-inventory" onclick=loadTable(this)>Inventory</span>
+                    <button class="tab-header" onclick=loadTable(this)>Low Stock</span>
+                    <button class="tab-header" onclick=loadTable(this)>Expiring Soon</span>
+                </div>   
+            </div>
+            <div id="medicines"></div>      <!-- /medicines inserts inventory table -->
+        </div>
+    </div>
+
+    <!-- The form for creating a medicine -->
+    <div class="form-popup" id="medicineForm">
+        <div class="form-container">
+            <form>
+                <h2>Add Medicine</h2>
+                <table>
+                    <tr>
+                        <td><label for="name"><b>Medicine Name</b></label></td>
+                        <td><input type="text" placeholder="Penicillin" id="name" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="quantity"><b>Quantity</b></label></td>
+                        <td><input type="number" id="quantity" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="expirationDate"><b>Expiration Date</b></label></td>
+                        <td><input type="date" id="expirationDate" required></td>
+                    </tr>
+                </table>
+                <button type="button" class="btn" onclick="addMedicine()">Submit</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

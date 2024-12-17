@@ -1,0 +1,101 @@
+<div class="topnav">
+    <!-- background image -->
+    <h1 class="header">Pharmacy Manager <img src="https://phoenixmed.arizona.edu/sites/default/files/campus/marcomm/brand/master-logo/3-block-a-arizona/ua_block_rgb_3.png" alt="University of Arizona Logo"></h1>
+    <!-- links for pages -->
+    <a class="hide" href="/pages/home.html" id="home">Home</a>
+    <a class="hide" href="/pages/medicines.html" id="medicine">Medicine Inventory</a>
+    <a class="hide" href="/pages/patients.html" id="patients">Patients</a>
+    <a class="hide" href="/pages/prescriptions.html" id="prescriptions">Prescriptions</a>
+    <a class="hide" href="/pages/checkout.html" id="checkout">Check Out</a>
+    <a class="hide" href="/pages/reports.html" id="reports">Reports</a>
+    <a class="hide" href="/pages/accounts.html" id="accounts">Account Manager</a>
+    <!-- login/logout buttons - only one visible at a time -->
+    <a class="btn" href="/pages/login.html" id="login">Login</a>
+    <a class="btn" id="logout" onclick=Logout()>Logout</a>
+</div>
+<img
+    class="demo-bg"
+    src="../styles/Old_Campus_aeiral.jpg"
+    alt=""
+>
+
+<style>
+    :root {
+        font-family: Roboto, Helvetica, sans-serif;
+    }
+    /* Add a black background color to the top navigation */
+    .topnav {
+        background-color: #ab0520;
+        padding: none;
+        margin: none;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        position: fixed;
+    }
+    
+    /* Style the links inside the navigation bar */
+    .topnav a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+    
+    /* Change the color of links on hover */
+    .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    .topnav a.btn {
+        position: absolute;
+        right: 125px;
+        top: 90px;
+        background-color: navy;
+        color: #f2f2f2;
+        padding: 5px 15px;
+        border-radius: 5px;
+    }
+
+    .topnav a.btn:hover {
+        background-color: #ddd;
+    }
+    
+    /* Add an active class to highlight the current page */
+    .topnav a.active {
+        background-color: #ab0520;
+        color: white;
+    }
+    
+    /* Hide the link that should open and close the topnav on small screens */
+    .topnav .icon {
+        display: none;
+    }
+
+    img {
+        width: 80px;
+        float: right;
+        padding: 0px 10px;
+    }
+
+    h1.header {
+        padding: 0px 10px;
+        color: #f2f2f2;
+    }
+
+    .demo-bg {
+        opacity: 0.4;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: auto;
+        z-index: -2;
+        padding:0px;
+    }
+</style>

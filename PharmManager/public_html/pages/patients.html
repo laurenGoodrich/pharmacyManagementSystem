@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Patients</title>
+    <meta charset="utf-8">
+    <script src="/scripts/patients.js"></script>
+    <link rel="icon" type="image/x-icon" href="../styles/favicon.png">
+    <link rel="stylesheet"
+          type="text/css"
+          href="/styles/patients.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <script id="replace_with_navbar" src="/nav.js"></script>
+    <div id="patientMain">
+        <!--Search for a patient based on their Name or DoB-->
+        <div class="widget" id="patients-header">
+            <span id="searchPatients">
+                <table><tr id="searchRow">
+                    <td><label for="name">Name:</label></td>
+                    <td>
+                        <div id="searchName">
+                            <input type="text" id="name">
+                            <ul id="suggestions"></ul>
+                        </div>
+                    </td>
+                    <td><label for="dob">Date of Birth:</label></td>
+                    <td><input type="date" id="patientDoB"></td>
+                    <td><button onClick=searchPatient() id="search">Search</button></td>
+                </tr></table>
+            </span>
+            <button class="open-button" onclick="openForm(1)">Add Patient</button>
+        </div>
+        <!--Form Pop-Up-->
+
+        <!--List of all patients-->
+        <div class="widget">
+            <h2>Patient List</h2>
+            <div id="patientList"></div>   <!-- /patients inserts inventory table -->
+        </div>
+    </div>
+    <!-- The form for creating a patient-->
+    <div class="form-popup" id="patientForm">
+        <div class="form-container">
+            <form>
+                <h2>Patient Information</h2>
+                <table>
+                    <tr>
+                        <td><label for="patientName"><b>Patient Name</b></label></td>
+                        <td><input type="text" placeholder="Jane Doe" id="patientName" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="dob"><b>Date of Birth</b></label></td>
+                        <td><input type="date" id="dob" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="phoneNumber"><b>Phone Number</b></label></td>
+                        <td><input type="tel" placeholder="123-456-7890" id="phoneNumber" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="email"><b>Email Address</b></label></td>
+                        <td><input type="email" id="email" placeholder="you@example.com" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="street"><b>Street Address</b></label></td>
+                        <td><input type="text" id="street" placeholder="123 Main St" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="city"><b>City</b></label></td>
+                        <td><input type="text" id="city" placeholder="City" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="state"><b>State/Province</b></label></td>
+                        <td><input type="text" id="state" placeholder="State" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="zip"><b>ZIP/Postal Code</b></label></td>
+                        <td><input type="text" id="zip" placeholder="12345" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="insurance"><b>Insurance Provider</b></label></td>
+                        <td><input type="text" id="insurance" placeholder="provider" required></td>
+                    </tr>
+                </table>
+                <button type="button" class="btn" id="submit-btn" onclick="addPatient()">Submit</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+        </div>
+    </div>
+    <!-- Form for displaying the found patient -->
+    <div class="form-popup" id="patientFoundForm" style="display:none;">
+        <div class="form-container">
+            <form>
+                <h2>Found Patient Details</h2>
+                <table>
+                    <tr>
+                        <td><label for="foundPatientName"><b>Patient Name</b></label></td>
+                        <td><input type="text" id="foundPatientName" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><label for="foundPatientDoB"><b>Date of Birth</b></label></td>
+                        <td><input type="date" id="foundPatientDoB" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><label for="foundPatientPhone"><b>Phone Number</b></label></td>
+                        <td><input type="tel" id="foundPatientPhone" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><label for="foundPatientEmail"><b>Email Address</b></label></td>
+                        <td><input type="email" id="foundPatientEmail" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><label for="foundPatientAddress"><b>Address</b></label></td>
+                        <td><input type="text" id="foundPatientAddress" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><label for="foundPatientInsurance"><b>Insurance Provider</b></label></td>
+                        <td><input type="text" id="foundPatientInsurance" readonly></td>
+                    </tr>
+                </table>
+                <button type="button" class="btn close" onclick="closeFoundPatient()">Close</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Popup for no patient found -->
+    <div class="form-popup" id="noPatientFoundForm" style="display:none;">
+        <div class="form-container">
+            <h2>No Patient Found</h2>
+            <p>The patient you searched for was not found.</p>
+            <button type="button" class="btn close" onclick="closeNoPatientFound()">Close</button>
+        </div>
+    </div>
+
+    <!-- Popup for see patient prescriptions -->
+    <div class="form-popup" id="seePrescriptionsForm" style="display:none;">
+        <div class="form-container">
+            <h2>Prescriptions for</h2>
+            <div id="prescriptionsList"></div>
+            <button type="button" class="btn close" onclick="closeSeePrescriptions()">Close</button>
+        </div>
+    </div>
+
+    <!-- Popup to confirm fill prescription-->
+    <div class="form-popup" id="confirmFill">
+        <div class="form-container">
+            <form>
+                <h2>Fill Prescription</h2>
+                <p class="info">Are you sure you want to fill this prescription?</p>
+                <div id="prescriptionDetails">
+                    <table>
+                    <tr>
+                        <td><p>Patient name: </p></td>
+                        <td><p id="presName"></p></td>
+                    </tr>
+                    <tr>
+                        <td><p>Date created: </p></td>
+                        <td><p id="presDate"></p></td>
+                    </tr>
+                    <tr>
+                        <td><p>Medication: </p></td>
+                        <td><p id="presMedication"></p></td>
+                    </tr>
+                    <tr>
+                        <td><p>Quantity: </p></td>
+                        <td><p id="presQuantity"></p></td>
+                    </tr>
+                    </table>
+                </div>
+                <div id="errorMessages"></div>
+                <button type="button" class="btn" id="fillButton">Fill Prescription</button>
+                <button type="button" class="btn cancel" onclick="closeFillForm()">Close</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

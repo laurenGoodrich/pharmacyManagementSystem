@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Reports</title>
+    <meta charset="utf-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <script src="/scripts/reports.js"></script>
+    <link rel="icon" type="image/x-icon" href="../styles/favicon.png">
+    <link rel="stylesheet"
+          type="text/css"
+          href="/styles/reports.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <script id="replace_with_navbar" src="/nav.js"></script>
+    
+    <div id="reportsMain">
+        <!--Generate Inventory Reports for specified period of time-->
+        <div class="widget">
+            <h2>Generate Medicine Inventory Report</h2>
+            <div id="generateReport">
+                <table>
+                    <tr id="reportRow">
+                        <td><label for="startDate">Start Date:</label></td>
+                        <td>
+                            <input type="date" id="startDate">
+                        </td>
+                        <td><label for="endDate">End Date:</label></td>
+                        <td>
+                            <input type="date" id="endDate">
+                        </td>
+                        <td>
+                            <button onClick="generateReport()" id="generateInventoryReportButton">Generate</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="medicines"></div> 
+        <!-- Financial reports div -->
+        <div class="widget">
+            <h2>Generate Financial Report</h2>
+            <div id="generateReport">
+                <table>
+                    <tr id="reportRow">
+                        <td><label for="startDate">Start Date:</label></td>
+                        <td>
+                            <input type="date" id="startDateFinancial">
+                        </td>
+                        <td><label for="endDate">End Date:</label></td>
+                        <td>
+                            <input type="date" id="endDateFinancial">
+                        </td>
+                        <td>
+                            <button onClick="getFinancialReport()" id="generateReportButton">Generate</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="payments"></div> 
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <meta charset="utf-8">
+    <script src="/scripts/login.js"></script>
+    <link rel="icon" type="image/x-icon" href="../styles/favicon.png">
+    <link rel="stylesheet"
+          type="text/css"
+          href="/styles/login.css">
+</head>
+<body>
+    <div class="login-form">
+        <h1>Pharmacy Management System</h1>
+        <h3>Login To Your Account</h3>
+        <!-- login -->
+        <form>
+            <p>
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username">
+            </p>
+            <p>
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password">
+            </p>
+            <button onclick=handleLogin()>Login</button>
+        </form>
+    </div>
+    <!-- popup for making a new password -->
+    <div class="form-popup" id="passwordForm">
+        <div class="form-container">
+            <form id="passwordSettingsForm">
+                <h2>Password Settings</h2>
+
+                <div id="newPasswordSection">
+                    <div>
+                        <label for="newPassword">New Password</label>
+                        <input type="password" id="newPassword" placeholder="Enter New Password" required>
+                    </div>
+                    <div>
+                        <label for="newPassword2">Confirm New Password</label>
+                        <input type="password" id="newPassword2" placeholder="Enter New Password" required>
+                    </div>
+                    <button type="button" class="btn" id="saveChangesButton" onclick="setNewPw()">Save Changes</button>
+                </div>
+
+                <button type="button" class="btn cancel" onclick="closePasswordSettingsForm()">Close</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

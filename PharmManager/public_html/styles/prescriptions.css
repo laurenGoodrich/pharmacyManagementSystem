@@ -1,0 +1,256 @@
+:root {
+    font-family: Roboto, Helvetica, sans-serif;
+}
+
+#login {
+  display: none;
+}
+
+body {
+  margin: 0px;
+}
+
+h3 {
+  display: inline;
+}
+
+#searchBar {
+  display: inline-block;
+  padding-top:20px;
+  width: 75%;
+  margin:10px;
+}
+
+#searchField{
+  width: 70%;
+}
+
+#middle {
+  height: fit-content;
+  flex-grow: 0;
+}
+
+#prescription-main {
+  margin-top:128px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Centering the widgets */
+  width: 100%;
+  height: 100%;
+}
+
+#prescriptions {
+    background-color: white;
+    color: black;
+}
+
+#prescriptionsList {
+  height: 400px;
+  overflow-y: scroll;
+  padding: 0px 40px;
+}
+
+#headers{
+  width:100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom:10px;
+  background-color: #ab0520;
+  height: fit-content;   
+  border-radius: 4px;
+}
+
+#headers-inner{
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tab-header{
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  border: none;
+  background-color: #ab0520;
+  color: white;
+}
+
+/* Change the color of links on hover */
+.tab-header:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add an active class to highlight the current page */
+.tab-header.active {
+  background-color: white;
+  color: black;
+}
+
+input:read-only {
+    border: none;
+}
+
+table {
+    background-color: #ffffff;
+    border-collapse: collapse;
+    box-shadow: 0px 2px 2px #dddddd, 0px 0px 5px #dddddd;
+    border-radius: 4px;
+    width: 70%;
+    margin: 20px auto;
+}
+
+th {
+    font-size: 15pt;
+    font-weight: bold;
+    color: #777777;
+    padding: 10px;
+    margin: 0;
+}
+
+td {
+    font-weight: lighter;
+    color: #444444;
+    padding: 20px 10px;
+    margin: 0;
+}
+
+th, td {
+    text-align: left;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.visually-hidden {
+    border: none;
+    padding: none;
+}
+
+.widget {
+    border: 1px solid #f1f1f1;
+    margin-top:10px;
+    background-color: #ffffff;
+    border-radius: 4px;
+
+    flex-grow: 1;  /* Makes all widgets the same width */
+    width: 100%;   /* Ensures they take the same width */
+    max-width: 1000px;
+}
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  float: right;
+  margin: 20px;
+  font-size: large;
+  background-color: #ab0520;
+  color: #f2f2f2;
+  border-radius: 4px;
+}
+
+.open-button:hover {
+  background-color: #ef4056;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with transparency */
+  justify-content: center; 
+  align-items: center; 
+}
+
+.form-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  width: 300px; 
+  text-align: center; 
+  align-items: center;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+  border-radius: 4px;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+#errorMessages {
+  color: red;
+}
+
+#patientSuggestions {
+  list-style-type: none;
+  padding: 0;
+  border: 1px solid #ccc;
+  max-height: 150px; 
+  overflow-y: auto; /* Enable vertical scroll on dropdown if needed */
+  margin: 0;
+  position: absolute; /* Positioning the suggestions absolutely */
+  top: 100%; /* Align below the input */
+  left: 0; 
+  right: 0; 
+  z-index: 1000; /* Ensure it appears above other content */
+  background-color: white;
+}
+
+#patientSuggestions li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+#patientSuggestions li:hover {
+  background-color: #f0f0f0;
+}
+
+#searchName {
+  display: flexbox;
+  flex-direction: column;
+  padding: none;
+  position: relative;
+}
+
+#patientName {
+  margin: 0;
+}
+

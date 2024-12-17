@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Check Out</title>
+    <meta charset="utf-8">
+    <script src="/scripts/prescriptions.js"></script>
+    <link rel="icon" type="image/x-icon" href="../styles/favicon.png">
+    <link rel="stylesheet"
+          type="text/css"
+          href="/styles/prescriptions.css">
+    <script src="https://cdn.jsdelivr.net/npm/winston/browser/winston.js"></script>
+</head>
+<body>
+    <script id="replace_with_navbar" src="/nav.js"></script>
+    <!-- A button to open the popup form -->
+
+    <div id="prescription-main">
+        <div class="widget" id="middle">
+            <div id="searchBar">
+                <h3>Search:</h3>
+                <span>
+                    <input type="text" id="searchField" oninput= debouncedSearchMeds()>
+                </span> 
+            </div>
+            <button class="open-button" onclick="openAddForm()">Add Prescription</button>
+        </div>
+        <div class="widget">
+            <div id="headers">
+                <div id="headers-inner">
+                    <button class="tab-header active" id="main-prescriptions" onclick=loadTable(this)>Active Prescriptions</span>
+                    <button class="tab-header" onclick=loadTable(this)>Filled Prescriptions</span>
+                </div>   
+            </div>
+            <div id="prescriptionsList"></div>  
+        </div>  
+    </div>
+
+    <!-- The form to add prescriptions -->
+    <div class="form-popup" id="addForm">
+        <div class="form-container">
+            <form>
+                <h2>Add Prescription</h2>
+
+                <table>
+                    <tr>
+                        <td><label for="patientName"><b>Patient Name</b></label></td>
+                        <td><div id="searchName">
+                            <input type="text" placeholder="Enter name" id="patientName" required>
+                            <ul id="patientSuggestions"></ul>
+                        </div></td>
+                    </tr>
+                    <!-- Took this out - autoset to today -->
+                    <!-- <tr>
+                        <td><label for="dateCreated"><b>Date</b></label></td>
+                        <td><input type="date" id="dateCreated" required></td>
+                    </tr> -->
+                    <tr>
+                        <td><label for="medication"><b>Medication</b></label></td>
+                        <td><input type="text" placeholder="Enter medication" id="medication" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="quantity"><b>Quantity</b></label></td>
+                        <td><input type="number" placeholder="Enter quantity" id="quantity" required></td>
+                    </tr>
+                </table>
+                <button type="button" class="btn" onclick="addPrescription()">Submit</button>
+                <button type="button" class="btn cancel" onclick="closeAddForm()">Close</button>
+            </form>
+        </div>
+    </div>
+    <!-- Form to fill prescriptions -->
+    <div class="form-popup" id="confirmFill">
+        <div class="form-container">
+            <form>
+                <h2>Fill Prescription</h2>
+                <p class="info">Are you sure you want to fill this prescription?</p>
+                <div id="prescriptionDetails">
+                    <table>
+                    <tr>
+                        <td><p>Patient name: </p></td>
+                        <td><p id="presName"></p></td>
+                    </tr>
+                    <tr>
+                        <td><p>Date created: </p></td>
+                        <td><p id="presDate"></p></td>
+                    </tr>
+                    <tr>
+                        <td><p>Medication: </p></td>
+                        <td><p id="presMedication"></p></td>
+                    </tr>
+                    <tr>
+                        <td><p>Quantity: </p></td>
+                        <td><p id="presQuantity"></p></td>
+                    </tr>
+                    </table>
+                </div>
+                <div id="errorMessages"></div>
+                <button type="button" class="btn" id="fillButton">Fill Prescription</button>
+                <button type="button" class="btn cancel" onclick="closeFillForm()">Close</button>
+            </form>
+        </div>
+    </div>
+
+     <!-- Insurance Check Popup -->
+     <div class="form-popup" id="insuranceCheckForm">
+        <div class="form-container">
+            <h2>Insurance Check</h2>
+            <p>Do you have insurance?</p>
+            <label for="insuranceYes">Yes</label>
+            <input type="radio" name="insuranceBool" onclick="handleInsurance(true)" id="insuranceYes">
+            <label for="insuranceNo">No</label>
+            <input type="radio"  name="insuranceBool" onclick="handleInsurance(false)" id="insuranceNo">
+            <br>
+            <label for="manualPrice" id="manualPriceLabel" style="display:none;">Enter Price:</label>
+            <input type="text" id="manualPrice" style="display:none;">
+            <button type="button" class="btn" onclick="confirmAddToCart()">Add to Cart</button>
+            <button type="button" class="btn cancel" onclick="closeInsuranceCheck()">Close</button>
+        </div>
+    </div>
+</body>
+</html>

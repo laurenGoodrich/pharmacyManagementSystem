@@ -1,0 +1,222 @@
+:root {
+    font-family: Roboto, Helvetica, sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+#login {
+    display: none;
+}
+
+body {
+    margin: 0px;
+}
+
+input:read-only {
+    border: none;
+}
+
+table {
+    background-color: #ffffff;
+    border-collapse: collapse;
+    box-shadow: 0px 2px 2px #dddddd, 0px 0px 5px #dddddd;
+    border-radius: 4px;
+    width:70%;
+    margin: 20px auto;
+}
+
+th {
+    font-size: 15pt;
+    font-weight: bold;
+    color: #777777;
+    padding: 10px;
+    margin: 0;
+}
+
+td {
+    font-weight: lighter;
+    color: #444444;
+    padding: 20px 10px;
+    margin: 0;
+}
+
+th, td {
+    text-align: left;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.visually-hidden {
+    border: none;
+    padding: none;
+}
+
+.widget {
+    border: 1px solid #f1f1f1;
+    margin-top:10px;
+    background-color: #ffffff;
+    border-radius: 4px;
+
+    flex-grow: 1;  /* Makes all widgets the same width */
+    width: 100%;   /* Ensures they take the same width */
+    max-width: 800px;  /* max-width to limit expansion */
+}
+
+#medicineMain {
+    padding-top:128px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%-128px;
+}
+
+#middle {
+    height: fit-content;
+    flex-grow: 0;
+}
+
+#medicine {
+    background-color: white;
+    color: black;
+}
+
+#searchBar, #add-medicine-bar, #addMedicine {
+    margin:10px;
+}
+
+#searchBar {
+    display: inline-block;
+    padding-top:20px;
+    width: 75%;
+}
+
+#searchField{
+    width: 70%;
+}
+
+#medicines{
+    height: 390px;
+    overflow-y: scroll;
+}
+
+#addMedicine, #headers, #medicines {
+    width: 100%;
+}
+
+#headers{
+    width:100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:10px;
+    background-color: #ab0520;
+    height: fit-content;   
+    border-radius: 4px;
+}
+
+#headers-inner{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tab-header{
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    border: none;
+    background-color: #ab0520;
+    color: white;
+}
+
+/* Change the color of links on hover */
+.tab-header:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add an active class to highlight the current page */
+.tab-header.active {
+    background-color: white;
+    color: black;
+}
+
+#no-medicines{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top:30px;
+}
+
+
+h3 {
+    display: inline;
+}
+
+
+.open-button {
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    margin: 15px;
+    float: right;
+    font-size: large;
+    background-color: #ab0520;
+    color: #f2f2f2;
+    border-radius: 4px;
+}
+  
+.open-button:hover {
+    background-color: #ef4056;
+}
+
+.form-popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with transparency */
+    justify-content: center; 
+    align-items: center; 
+  }
+
+
+.form-container {
+    background-color: white;
+    padding: 20px; /* Reduced padding */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    width: auto; 
+    text-align: center;
+    max-height: 90vh; /* Limit height to 90% of the viewport height */
+    overflow-y: auto; /* vertical scroll if content overflows */
+}
+
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+    background-color: #04AA6D;
+    color: white;
+   /* padding: 16px 20px;*/
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+    border-radius: 4px;
+  }
+
+  /* Add a red background color to the cancel button */
+.form-container .cancel {
+    background-color: red;
+  }
+
+.form-container .close {
+    background-color: red;
+}

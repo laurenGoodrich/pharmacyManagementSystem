@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet"
+          type="text/css"
+          href="/styles/checkout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="/scripts/checkout.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+</head>
+
+    <body>
+        <script id="replace_with_navbar" src="/nav.js"></script>
+
+        <div id="checkoutMain">
+            <!-- Buttons for Opening Forms -->
+            <button class="open-button" onclick="openAddItem()">Add Item</button>
+
+            <!--Add Item to cart Form -->
+            <div class="form-popup" id="addItemForm">
+                <div class="form-container">
+                    <form>
+                        <h2>Add an Item</h2>
+                        <table>
+                            <tr id="nonprescriptionField" style="display: flex;">
+                                <td>
+                                    <select id="category" name="category" required>
+                                        <option value="" disabled selected>Select Type</option>
+                                        <option value="grocery">Grocery</option>
+                                        <option value="electronics">Electronics</option>
+                                        <option value="household">Household</option>
+                                        <option value="beauty">Beauty</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <label for="itemName">Item Name:</label>
+                                    <input type="text" id="itemName" name="itemName">
+                                </td>
+                                <td>
+                                    <label for="price">Price:</label>
+                                    <input type="text" id="price" name="price">
+                                </td>
+                                <td>
+                                    <label for="quantity">Quantity:</label>
+                                    <input type="text" id="quantity" name="quantity">
+                                </td>
+                            </tr>
+                        </table>
+
+                        <button type="button" class="btn" onclick="addItem()">Add Item</button>
+                        <button type="button" class="btn cancel" onclick="closeAddItem()">Close</button>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="checkoutMain">
+            <!-- Insurance Check Popup -->
+            <div class="form-popup" id="insuranceCheckForm">
+                <div class="form-container">
+                    <h2>Insurance Check</h2>
+                    <p>Do you have insurance?</p>
+                    <label for="insuranceYes">Yes</label>
+                    <input type="radio" name="insuranceBool" onclick="handleInsurance(true)" id="insuranceYes">
+                    <label for="insuranceNo">No</label>
+                    <input type="radio"  name="insuranceBool" onclick="handleInsurance(false)" id="insuranceNo">
+                    <br>
+                    <label for="manualPrice" id="manualPriceLabel" style="display:none;">Enter Price:</label>
+                    <input type="text" id="manualPrice" style="display:none;">
+                    <button type="button" class="btn" onclick="confirmAddToCart()">Add to Cart</button>
+                    <button type="button" class="btn cancel" onclick="closeInsuranceCheck()">Close</button>
+                </div>
+            </div>
+
+            <!-- payment form -->
+            <div class="form-popup" id="paymentForm">
+                <div class="form-container">
+                    <div id="paymentCartSection"></div>
+                    <div class="payment-options" id="payment-options">
+                        <h2>Payment Options</h2>
+                        <div id="payment-form">
+                            <div id="payment-selection">
+                                <label for="cashRadio">Cash</label>
+                                <input type="radio" name="paymentType" id="cashRadio">
+                                <label for="debitRadio">Debit</label>
+                                <input type="radio" name="paymentType" id="debitRadio">
+                                <label for="creditRadio">Credit</label>
+                                <input type="radio" name="paymentType" id="creditRadio">
+                            </div>
+                            <div id="paymentInput"></div>
+                        </div>
+                    </div>
+
+                    <!-- checkout confirmation  -->
+                    <div class="checkout-section">
+                        <button type="button" class="btn cancel" onclick="closePayment()">Cancel</button>
+                        <button id="completeCheckout" class="btn" onclick="validatePayment()">Complete Checkout</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="checkout">
+                <div class="widget">
+                    <h1>Checkout Patient</h1>
+                    <!-- patient search for adding prescriptions -->
+                    <div id="searchPatients">
+                        <table>
+                            <tr id="searchRow">
+                                <td><label for="patient-name">Search Patient Name:</label></td>
+                                <td>
+                                    <div id="searchName">
+                                        <input type="text" id="patient-name" placeholder="Enter patient name" oninput="searchPatientSuggestions()">
+                                        <ul id="suggestions"></ul>
+                                    </div>
+                                </td>
+                                <td><label for="patientDoB">Date of Birth:</label></td>
+                                <td><input type="date" id="patientDoB"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!-- prescriptions for that patient -->
+                <div class="widget">
+                    <h2>Filled Prescriptions</h2>
+                    <div id="prescriptionTable"></div>
+                </div>
+                <!-- shopping cart -->
+                <div class="widget">
+                    <h2>Shopping Cart</h2>
+                    <div id="cartSection">
+                    </div>
+                </div>
+
+            </div>
+
+            </div>
+        </div>
+        
+    </body>
+</html>

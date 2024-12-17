@@ -1,0 +1,26 @@
+2024-11-26T03:56:32.690Z - Pharmacist: kari, Prescription: 674546eb2b823ff497b783b9, Patient: Malia, Medication: M10, Quantity: 2
+2024-11-27T23:37:01.098Z - Pharmacist: kari, Prescription: 6716b8c1cab41172cc875b8a, Patient: Malia Edmonds, Medication: M10, Quantity: 50
+2024-11-28T01:00:48.452Z - Pharmacist: kari, Prescription: 674546eb2b823ff497b783b9, Patient: Malia, Medication: M10, Quantity: 2
+2024-11-28T02:44:03.746Z - Pharmacist: kari, Prescription: 67450de4ce4548c90c834883, Patient: Malia, Medication: M10, Quantity: 20
+2024-11-28T03:21:55.528Z - Pharmacist: kari, Prescription: 6747e1d11ec8b8b56fe5946c, Patient: Kari Cordes, Medication: Penicillin, Quantity: 10
+2024-11-28T03:22:13.912Z - Pharmacist: kari, Prescription: 6747e1d11ec8b8b56fe5946c, Patient: Kari Cordes, Medication: Penicillin, Quantity: 10
+2024-11-28T03:24:10.342Z - Pharmacist: kari, Prescription: 6747e2111ec8b8b56fe594a2, Patient: Kari Cordes, Medication: Penicillin, Quantity: 10
+2024-11-28T03:27:09.785Z - Pharmacist: kari, Prescription: 6747e2341ec8b8b56fe594b0, Patient: Enka Hysaj, Medication: Tylenol, Quantity: 10
+2024-11-28T04:25:28.772Z - Pharmacist: kari, Prescription: 6747f08827db6c4066914197, Patient: Kari Cordes, Medication: Penicillin, Quantity: 7
+2024-11-28T04:27:30.089Z - Pharmacist: kari, Prescription: 6747f08827db6c4066914197, Patient: Kari Cordes, Medication: Penicillin, Quantity: 7
+2024-11-28T04:27:37.581Z - Pharmacist: kari, Prescription: 6747f08827db6c4066914197, Patient: Kari Cordes, Medication: Penicillin, Quantity: 7
+2024-11-28T04:39:37.922Z - Pharmacist: kari, Prescription: 6747f3e327db6c4066914220, Patient: Kari Cordes, Medication: Penicillin, Quantity: 14
+2024-11-28T04:41:19.606Z - Pharmacist: kari, Prescription: 6747f3e327db6c4066914220, Patient: Kari Cordes, Medication: Penicillin, Quantity: 14
+2024-11-28T04:42:28.620Z - Pharmacist: kari, Prescription: 6747f4aa27db6c4066914250, Patient: Enka Hysaj, Medication: Amoxycillin, Quantity: 10
+2024-11-28T04:52:30.785Z - Pharmacist: kari, Prescription: 6747e2111ec8b8b56fe594a2, Patient: Kari Cordes, Medication: Penicillin, Quantity: 10
+2024-11-28T04:53:40.739Z - Pharmacist: kari, Prescription: 6747e2341ec8b8b56fe594b0, Patient: Enka Hysaj, Medication: Tylenol, Quantity: 10
+2024-11-28T05:48:21.243Z - Pharmacist: kari, Prescription: 6747e2cf4f5f78b5a9e9d8af, Patient: Malia Edmonds, Medication: Ibuprofen, Quantity: 15
+2024-11-28T07:06:32.619Z - Pharmacist: kari, Prescription: 67481676601a42f10327352c, Patient: Kari Cordes, Medication: Ibuprofen, Quantity: 50
+2024-11-28T07:07:19.905Z - Pharmacist: kari, Prescription: 674816a5aca61458aa1950fd, Patient: Jane Doe, Medication: Ibuprofen, Quantity: 20
+2024-11-28T07:09:31.382Z - Pharmacist: kari, Prescription: 67481721aca61458aa19510c, Patient: Jane Doe, Medication: Ibuprofen, Quantity: 20
+2024-11-28T07:09:32.175Z - Pharmacist: kari, Prescription: 674816a5aca61458aa1950fd, Patient: Jane Doe, Medication: Ibuprofen, Quantity: 20
+2024-11-28T07:21:31.243Z - Pharmacist: kari, Prescription: 6747f08827db6c4066914197, Patient: Kari Cordes, Medication: Penicillin, Quantity: 7
+2024-11-28T07:21:47.674Z - Pharmacist: kari, Prescription: 67481676601a42f10327352c, Patient: Kari Cordes, Medication: Ibuprofen, Quantity: 50
+2024-11-28T07:24:00.944Z - Pharmacist: kari, Prescription: 6747f3e327db6c4066914220, Patient: Kari Cordes, Medication: Penicillin, Quantity: 14
+2024-12-16T23:44:21.326Z - Pharmacist: kari, Prescription: 67574bd997893fb8928056da, Patient: Jane Doe, Medication: Amoxycillin, Quantity: 48
+2024-12-16T23:44:51.132Z - Pharmacist: kari, Prescription: 67574bd997893fb8928056da, Patient: Jane Doe, Medication: Amoxycillin, Quantity: 48
