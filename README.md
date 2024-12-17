@@ -28,6 +28,7 @@ mocha (npm install --save-dev mocha), and dotenv (npm install dotenv). This is d
 
 ## Running the code
 To run the project, open a terminal in the PharmManager/server directory and run the command "node server.js"
+Then enter http://localhost:3000/ in the browser. Use the username 'kari' and password 'pw' to see full functionality.
 
 To test, the tests are in the PharmManager/tests folder. The tests can be run in a terminal from that folder using the 
 command "npx mocha .\[test-name].test.js".
