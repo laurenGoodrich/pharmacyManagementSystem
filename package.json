@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "jspdf": "^2.5.2",
+    "jspdf-autotable": "^3.8.4",
+    "mongoose": "^8.7.0"
+  },
+  "devDependencies": {
+    "chai": "^5.1.1",
+    "mocha": "^10.7.3",
+    "supertest": "^7.0.0"
+  },
+  "scripts": {
+    "test": "npx mocha --require ./PharmManager/tests/setup.js ./PharmManager/tests/medicine.test.js"
+  },
+  "type": "module"
+}
